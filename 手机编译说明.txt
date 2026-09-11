@@ -1,0 +1,23 @@
+Folo AI Passport 小智 - 像素知心大姐姐 UI v1
+
+这份源码已经包含：
+1. CW2017 电量百分比显示
+2. 176x176 低分辨率像素人物素材
+3. 待机 / 聆听 / 思考 / 回复四种人物状态
+4. 屏幕中间人物放大到约 188x188
+5. 3 分钟待机后自动关闭 LCD 背光
+6. 按键、唤醒词、状态变化、通知会重新亮屏
+7. 息屏时 Wi-Fi 和“你好小智”唤醒仍继续运行
+8. GitHub Actions 手机云编译配置
+
+手机编译：
+- 把整个源码上传到 GitHub 仓库
+- 打开 Actions
+- 选择 Build Folo AI Passport (Pixel Sister UI v1)
+- Run workflow
+- 编译完成后下载 folo-ai-passport-pixel-sister-ui-v1
+- 里面的 merged-binary.bin 就是完整烧录固件
+
+提醒：
+本环境没有安装 ESP-IDF，因此这里只做了源码结构检查与 Python 单元测试。
+最终是否通过 C++ 编译，以 GitHub Actions 的 ESP-IDF 5.5.3 编译结果为准。

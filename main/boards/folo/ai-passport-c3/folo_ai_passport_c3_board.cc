@@ -321,9 +321,10 @@ public:
     }
 
     bool GetBatteryLevel(int& level, bool& charging, bool& discharging) override {
-        // No charger-status GPIO is documented for this board. Both false means unknown.
+        // CW2017 has no charge-state output and this board has no documented
+        // charge-detect GPIO, so follow the upstream board implementation.
         charging = false;
-        discharging = false;
+        discharging = true;
         return battery_.GetLevel(level);
     }
 

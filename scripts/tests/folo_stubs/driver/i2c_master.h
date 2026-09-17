@@ -43,6 +43,9 @@ inline int i2c_master_transmit_receive(i2c_master_dev_handle_t, const uint8_t* r
     if (fake::error) return fake::error;
     if (*reg == 0x00 && size == 1) *out = fake::version;
     else if (*reg == 0x08 && size == 1) *out = fake::mode;
+    else if (*reg == 0x04 && size == 2) {
+        out[0] = fake::soc; out[1] = 0;
+    }
     else if (*reg == 0x02 && size == 4) {
         out[0] = fake::voltage >> 8; out[1] = fake::voltage & 0xFF;
         out[2] = fake::soc; out[3] = 0;

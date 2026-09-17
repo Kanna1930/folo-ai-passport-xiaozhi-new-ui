@@ -79,7 +79,9 @@ python scripts/build.py folo/ai-passport-c3 --name folo-ai-passport-c3 --languag
 
 ## 已验证与待验证
 
-已通过：`python -m unittest discover -s scripts/tests -v`，共 10 项。
+已通过：`python -m unittest discover -s scripts/tests -v`，共 11 项。
+亮度回归测试分别模拟 `int` 和 `long` 配置返回值，并检查负数、正常值及超过 255 的异常值，
+防止模板类型推导冲突和转换为 `uint8_t` 时提前截断。
 新增 C++ 主机测试使用 `-std=c++17 -Wall -Wextra -Werror` 编译真实的息屏策略、人物绘制头文件和电量驱动。
 电量驱动使用模拟 I2C，不连接真实芯片。
 

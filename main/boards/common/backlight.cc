@@ -3,6 +3,7 @@
 
 #include <esp_log.h>
 #include <driver/ledc.h>
+#include <algorithm>
 
 #define TAG "Backlight"
 
@@ -40,7 +41,7 @@ void Backlight::RestoreBrightness() {
         saved_brightness = 10;  // 设置一个较低的默认值
     }
     
-    SetBrightness(saved_brightness);
+    SetBrightness(static_cast<uint8_t>(std::clamp(saved_brightness, 10, 100)));
 }
 
 void Backlight::SetBrightness(uint8_t brightness, bool permanent) {

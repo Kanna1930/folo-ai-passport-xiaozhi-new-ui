@@ -162,7 +162,7 @@ private:
             if (page_ == Page::Home) {
                 page_ = Page::Menu;
                 Settings settings("display", false);
-                brightness_ = std::clamp(settings.GetInt("brightness", 75), 10, 100);
+                brightness_ = std::clamp<int32_t>(settings.GetInt("brightness", 75), 10, 100);
             } else if (page_ == Page::Menu) page_ = Page::Home;
             else page_ = Page::Menu;
             RenderMenu();
